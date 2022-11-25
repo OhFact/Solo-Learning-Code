@@ -1,0 +1,88 @@
+print("Hello, welcome to Tic Tac Toe")
+spaces = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+print(f"{spaces[0]:^5}|{spaces[1]:^5}|{spaces[2]:^5}\n"
+      f"-----------------\n{spaces[3]:^5}|{spaces[4]:^5}|{spaces[5]:^5}\n"
+      f"-----------------\n{spaces[6]:^5}|{spaces[7]:^5}|{spaces[8]:^5}")
+while True:
+
+    if spaces[0] == spaces[1] == spaces[2] and spaces[0].isalpha():
+        if spaces[0] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[3] == spaces[4] == spaces[5] and spaces[3].isalpha():
+        if spaces[3] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[6] == spaces[7] == spaces[8] and spaces[6].isalpha():
+        if spaces[6] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[0] == spaces[3] == spaces[6] and spaces[0].isalpha():
+        if spaces[0] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[1] == spaces[4] == spaces[7] and spaces[1].isalpha():
+        if spaces[1] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[2] == spaces[5] == spaces[8] and spaces[2].isalpha():
+        if spaces[2] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[0] == spaces[4] == spaces[8] and spaces[0].isalpha():
+        if spaces[0] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    elif spaces[2] == spaces[4] == spaces[6] and spaces[2].isalpha():
+        if spaces[2] == "X":
+            print("X wins!")
+        else:
+            print("Y wins!")
+        exit()
+    i = 0
+    while i == 0:
+        Xmover = int(input("Which row would you like to enter in X, 1, 2, or 3 left to right: "))
+        Xmovec = int(input("Which column would you like to enter in X, 1, 2, or 3 up to down: "))
+        if spaces[3*(Xmovec-1)+(Xmover-1)] == " ":
+            spaces[3*(Xmovec-1)+(Xmover-1)] = "X"
+            i = 1
+        else:
+            print("That space is already taken!")
+    print(f"{spaces[0]:^5}|{spaces[1]:^5}|{spaces[2]:^5}\n"
+          f"-----------------\n{spaces[3]:^5}|{spaces[4]:^5}|{spaces[5]:^5}\n"
+          f"-----------------\n{spaces[6]:^5}|{spaces[7]:^5}|{spaces[8]:^5}")
+    c = 0
+    for i in spaces:
+        if i == " ":
+            c = 1
+    if c == 0:
+        print("Tie Game!")
+        exit()
+
+    i = 0
+    while i == 0:
+        Ymover = int(input("Which row would you like to enter in Y, 1, 2, or 3 left to right: "))
+        Ymovec = int(input("Which column would you like to enter in Y, 1, 2, or 3 up to down: "))
+        if spaces[3 * (Ymovec - 1) + (Ymover - 1)] == " ":
+            spaces[3 * (Ymovec - 1) + (Ymover - 1)] = "Y"
+            i = 1
+        else:
+            print("That space is already taken!")
+    print(f"{spaces[0]:^5}|{spaces[1]:^5}|{spaces[2]:^5}\n"
+          f"-----------------\n{spaces[3]:^5}|{spaces[4]:^5}|{spaces[5]:^5}\n"
+          f"-----------------\n{spaces[6]:^5}|{spaces[7]:^5}|{spaces[8]:^5}")
