@@ -1,0 +1,40 @@
+# This is a sample Python script.
+# Caesar cipher.
+import string
+
+
+def listalphabet():
+    return list(string.ascii_lowercase)
+
+
+d = list(string.ascii_uppercase)
+a = listalphabet()
+for i in d:
+    a.append(i)
+c = []
+for i in a:
+    c.append(ord(i))
+text = input("Enter your message: ")
+up = int(input("Enter your shift: "))
+cipher = ''
+for char in text:
+    if char != " " and char.isalpha() == 1:  # is alpha checks if string is only letters
+        if char.islower():  # islower checks if its lowercase
+            lower = 1
+        else:
+            lower = 0
+        code = ord(char) + up  # the order (unicode) is incremented as per the shift
+        codeindex = a.index(char) + up
+        if lower == 0 and codeindex > a.index("Z"):  # if it isnt lower and the unicode is greater than
+            # Z's unicode, that means that we have to wrap back to the start of the alphabet
+            code = c[codeindex-26]
+        elif lower == 1 and codeindex > a.index("z"):  # same here
+            code = c[codeindex-26]
+        if lower == 1:
+            cipher += (chr(code)).lower()  # Chr() changes to character, changes it to lower
+        else:
+            cipher += chr(code)
+    else:
+        cipher += char
+
+print(cipher)
