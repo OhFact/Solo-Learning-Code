@@ -1,0 +1,37 @@
+import pygame
+from random import randrange, choice
+from colory.color import Color
+width = 1000
+height = 500
+
+
+def rgb_to_hex(red, green, blue):
+    return ('{:02X}' * 3).format(red, green, blue)
+
+
+def lower(script):
+    return script.lower()
+
+
+fonts = pygame.font.get_fonts()
+huh = str(choice(fonts))
+run = True
+pygame.init()
+r = randrange(1, 255)
+g = randrange(1, 255)
+b = randrange(1, 255)
+a = Color(lower(("#" + str(rgb_to_hex(r, g, b)))))
+screen = pygame.display.set_mode((width, height))
+font = pygame.font.SysFont(huh, 48)
+text = font.render("Welcome to pygame", True, (r, g, b))
+screen.blit(text, (((width - text.get_width()) // 2), (height - text.get_height()) // 2))
+font = pygame.font.SysFont(huh, 20)
+UI = font.render("Color: " + a.name + ", Font: " + huh, True, (255, 255, 255))
+screen.blit(UI, (((width - UI.get_width()) // 2), ((height - UI.get_height()) // 2)+70))
+pygame.display.flip()
+while run:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT\
+            or event.type == pygame.MOUSEBUTTONUP\
+                or event.type == pygame.KEYUP:
+            run = False
